@@ -1,7 +1,7 @@
 {
   "participants": [
     {
-      "name": "Abdullahi Muhammad sheriff ",
+      "name": "Abdullahi Muhammad Sheriff ",
       "ARU_username": "ghost",
       "password": "password",
       "strikes": 0,
@@ -67,7 +67,7 @@
       "level": 1
     },
     {
-      "name": "Aisha abubakar ali ",
+      "name": "Aisha Abubakar Ali ",
       "ARU_username": "juliet",
       "password": "password",
       "strikes": 0,
@@ -76,15 +76,59 @@
       "left_at": null,
       "path": "Web Development",
       "level": 1
+    },
+    {
+      "name": "Falmata Muhammad Musarambe",
+      "ARU_username": "november",
+      "password": "password",
+      "strikes": 0,
+      "status": "active",
+      "join_at": "2024-11-24T21:07:33.077Z",
+      "left_at": null,
+      "path": "Graphic Design",
+      "level": 1
+    },
+    {
+      "name": "Bukar Abba",
+      "ARU_username": "ethereum",
+      "password": "password",
+      "strikes": 0,
+      "status": "active",
+      "join_at": "2024-11-24T21:07:33.077Z",
+      "left_at": null,
+      "path": "Web Development",
+      "level": 1
+    },
+    {
+      "name": "Abba Mohammed",
+      "ARU_username": "redpill",
+      "password": "password",
+      "strikes": 0,
+      "status": "active",
+      "join_at": "2024-11-24T21:07:33.077Z",
+      "left_at": null,
+      "path": "Web Development",
+      "level": 1
+    },
+    {
+      "name": "Umar Muhammad bukar ",
+      "ARU_username": "ninja",
+      "password": "password",
+      "strikes": 0,
+      "status": "active",
+      "join_at": "2024-11-24T21:07:33.077Z",
+      "left_at": null,
+      "path": "Networking",
+      "level": 1
     }
   ],
+
   "admin": [
     {
-      "name": "Alice Admin",
-      "username": "admin_alice",
-      "password": "password",
-      "email": "alice.admin@example.com",
-      "phone_number": "+1234567890",
+      "name": "Ali Mustapha Shettima",
+      "username": "ALmax",
+      "password": "Admin@0x80",
+      "email": "abituho7s@mozmail.com",
       "role": "super_admin"
     },
     {
