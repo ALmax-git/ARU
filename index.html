@@ -103,10 +103,26 @@
     <div id="ARU_info" class="form-text">We'll never share your ARU Username with anyone else.</div>
   </div>
 </form>
+
+
+  <h1>Emoji Base16 Encoding</h1>
+  <input type="text" id="inputText" placeholder="Enter text here">
+  <button onclick="encodeText()">Encode</button>
+  <p><strong>Encoded Emoji:</strong></p>
+  <pre id="encoded"></pre>
+
+  <h2>Decode Back</h2>
+  <input type="text" id="inputEmoji" placeholder="Enter encoded emoji text">
+  <button onclick="decodeText()">Decode</button>
+  <p><strong>Decoded Text:</strong></p>
+  <pre id="decoded"></pre>
+
+
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Continue</button>
+        <button type="button" class="btn btn-primary" onlick="login">Continue</button>
       </div>
     </div>
   </div>
@@ -500,6 +516,7 @@
 
    
     <script src="assets/vendors/js/glightbox.min.js"></script>
+    <script src="assets/js/boot.js"></script>
 
     <script type="text/javascript">
       const lightbox = GLightbox({
