@@ -65,6 +65,17 @@
       "left_at": null,
       "path": "Ethical Hacking",
       "level": 1
+    },
+    {
+      "name": "Aisha abubakar ali ",
+      "ARU_username": "juliet",
+      "password": "password",
+      "strikes": 0,
+      "status": "active",
+      "join_at": "2024-11-24T19:46:29.122Z",
+      "left_at": null,
+      "path": "Web Development",
+      "level": 1
     }
   ],
   "admin": [
