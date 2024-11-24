@@ -46,11 +46,11 @@ let originalText = "Hello ARU";
 console.log("Original Text:", originalText);
 
 // Encoding the text to emojis
-let encodedEmojis = encodeTextToEmoji(originalText);
+let encodedEmojis = write(originalText);
 console.log("Encoded Emojis:", encodedEmojis);
 
 // Decoding the emojis back to text
-let decodedText = decodeEmojiToText(encodedEmojis);
+let decodedText = read(encodedEmojis);
 console.log("Decoded Text:", decodedText);
 
 ///////////////////////////////////////////////////
@@ -72,7 +72,7 @@ console.log("Decoded Text:", decodedText);
 async function getARUData() {
     try {
         // Fetch the ARU.json file from the server (index or public directory)
-        const response = await fetch('ARU.json');
+        const response = await fetch('/ARU.json');
         if (!response.ok) {
             throw new Error('Failed to load ARU.json');
         }
@@ -122,7 +122,7 @@ async function login() {
             // Store the user session in localStorage (or cookies)
             localStorage.setItem('loggedInUser', JSON.stringify(user));
             alert('Login successful!');
-            window.location.href = "/dashboard"; // Example redirection
+            window.location.href = "dashboard"; // Example redirection
         } else {
             alert('Invalid username or password!');
         }
@@ -149,6 +149,142 @@ function checkLogin() {
         console.log('No user logged in');
     }
 }
+
+
+// Function to check if an admin is logged in
+function checkAdminLogin() {
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    if (loggedInUser) {
+        const user = JSON.parse(loggedInUser);
+        return user.role === "super_admin" || user.role === "facilitator"; // Adjust roles as needed
+    }
+    return false;
+}
+
+
+async function createParticipant() {
+    // Gather input values to create a new participant object
+    let newParticipant = {
+        name: write(document.getElementById('name').value),
+        ARU_username: write(document.getElementById('ARU_username_new').value),
+        password: write(document.getElementById('password_new').value),
+        strikes: 0,
+        status: "active",
+        join_at: new Date().toISOString(),
+        left_at: null,
+        path: write(document.getElementById('path').value),
+        level: write(parseInt(document.getElementById('level').value)), // Ensure level is a number
+    };
+
+    try {
+        // Send a POST request to the server
+        const response = await fetch('http://localhost:3000/add-participant', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newParticipant), // Use the correct variable name
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error: ${response.statusText}`);
+        }
+
+        const result = await response.json(); // Parse JSON response
+        console.log('Participant added:', result);
+
+        // Provide user feedback
+        alert('Participant added successfully!');
+    } catch (error) {
+        console.error('Failed to add participant:', error);
+        alert('Failed to add participant. Please check your inputs and try again.');
+    }
+}
+
+
+// createParticipant(newParticipant);
+// Fetch ARU.json data
+async function fetchParticipants() {
+  try {
+    const response = await fetch('ARU.json'); // Ensure the correct file path
+    const data = await response.json();
+
+    if (data.participants) {
+      renderTable(data.participants);
+    }
+  } catch (error) {
+    console.error('Error fetching participants:', error);
+  }
+}
+
+// Render Table
+function renderTable(participants) {
+  const tableBody = document.getElementById('participantTableBody');
+  tableBody.innerHTML = ''; // Clear table body
+
+  participants.forEach((participant, index) => {
+    const row = `
+      <tr>
+        <td>${index + 1}</td>
+        <td>${read(participant.name)}</td>
+        <td>${read(participant.ARU_username)}</td>
+        <td>${read(participant.status)}</td>
+        <td>${read(participant.strikes)}</td>
+        <td>${read(participant.path)}</td>
+        <td>${read(participant.level})</td>
+        <td>${read(participant.join_at)}</td>
+        <td>${read(participant.left_at || 'N/A')}</td>
+      </tr>
+    `;
+    tableBody.innerHTML += row;
+  });
+}
+
+// Search and Filter Functionality
+function applyFilters(participants) {
+  const searchInput = document.getElementById('searchInput').value.toLowerCase();
+  const filterStatus = document.getElementById('filterStatus').value;
+
+  const filteredParticipants = participants.filter((participant) => {
+    const matchesSearch =
+      participant.name.toLowerCase().includes(searchInput) ||
+      participant.ARU_username.toLowerCase().includes(searchInput) ||
+      participant.status.toLowerCase().includes(searchInput);
+
+    const matchesStatus =
+      filterStatus === 'all' || participant.status === filterStatus;
+
+    return matchesSearch && matchesStatus;
+  });
+
+  renderTable(filteredParticipants);
+}
+
+// Initialize Table and Filters
+async function initDashboard() {
+  try {
+    const response = await fetch('ARU.json'); // Fetch data
+    const data = await response.json();
+
+    const participants = data.participants;
+
+    renderTable(participants); // Initial rendering
+
+    // Attach event listeners for search and filter
+    document.getElementById('searchInput').addEventListener('input', () => {
+      applyFilters(participants);
+    });
+
+    document.getElementById('filterStatus').addEventListener('change', () => {
+      applyFilters(participants);
+    });
+  } catch (error) {
+    console.error('Error initializing dashboard:', error);
+  }
+}
+
+// Load data when the page loads
+document.addEventListener('DOMContentLoaded', initDashboard);
 
 // Example usage: Check login status when the page loads
 document.addEventListener('DOMContentLoaded', checkLogin);

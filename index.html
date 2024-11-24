@@ -160,6 +160,44 @@
                 </path>
             </svg>
             <div class="container">
+
+<div class="row mt-4">
+  <h2>Participants Dashboard</h2>
+
+  <div class="mb-3">
+    <input
+      type="text"
+      id="searchInput"
+      class="form-control"
+      placeholder="Search participants by name, username, or status..."
+    />
+  </div>
+
+  <div class="mb-3">
+    <select id="filterStatus" class="form-select">
+      <option value="all">All Status</option>
+      <option value="active">Active</option>
+      <option value="inactive">Inactive</option>
+    </select>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Status</th>
+        <th>Strikes</th>
+        <th>Path</th>
+        <th>Level</th>
+        <th>Joined At</th>
+        <th>Left At</th>
+      </tr>
+    </thead>
+    <tbody id="participantTableBody"></tbody>
+  </table>
+</div>
                 <div class="row text-center text-white">
                     <h1 class="display-3 fw-bold">An Overview</h1>
                     <hr style="width: 100px; height: 3px; " class="mx-auto">
