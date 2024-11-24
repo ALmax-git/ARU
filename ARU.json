@@ -3,7 +3,7 @@
         {
             "name": "John Doe",
             "ARU_username": "john_d",
-            "password": "hashed_password_here",
+            "password": "password",
             "strikes": 0,
             "status": "active",
             "join_at": "2024-11-24T10:00:00Z",

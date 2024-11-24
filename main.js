@@ -72,7 +72,7 @@ console.log("Decoded Text:", decodedText);
 async function getARUData() {
     try {
         // Fetch the ARU.json file from the server (index or public directory)
-        const response = await fetch('/ARU.json');
+        const response = await fetch('ARU.json');
         if (!response.ok) {
             throw new Error('Failed to load ARU.json');
         }
@@ -84,31 +84,51 @@ async function getARUData() {
     }
 }
 
+
+
+
+
 // Function to check if the username and password match any user
 async function login() {
-    const aruData = await getARUData(); // Get ARU data from the ARU.json file
-    if (!aruData) {
-        alert('Error loading ARU data!');
-        return;
-    }
+    try {
+        const aruData = await getARUData(); // Get ARU data from ARU.json
 
-    const username = document.getElementById('ARU_username').value;
-    const password = document.getElementById('password').value; // In real-world scenario, hash password for comparison
+        const username = document.getElementById('ARU_username').value;
+        const password = document.getElementById('password').value; // In real-world scenario, hash password for comparison
 
-    // Check if user exists in participants or admin
-    let user = aruData.participants.find(user => user.ARU_username === username);
-    if (!user) {
-        user = aruData.admin.find(user => user.username === username);
-    }
+        let user = null;
 
-    if (user && user.password === password) {
-        // Store the user session in localStorage (or cookies)
-        localStorage.setItem('loggedInUser', JSON.stringify(user));
-        alert('Login successful!');
-        // Optionally redirect to another page or change interface to show logged-in state
-        window.location.href = "/dashboard"; // Example redirection
-    } else {
-        alert('Invalid username or password!');
+        // Search for user in participants array using a loop
+        for (let participant of aruData.participants) {
+            // alert(participant.ARU_username + " - " + username);
+            // alert(participant.password + " - " + password);
+            if (participant.ARU_username === username && participant.password === password) {
+                user = participant;
+                break;
+            }
+        }
+
+        // If not found in participants, search in admin array
+        if (!user) {
+            for (let admin of aruData.admin) {
+                if (admin.username === username && admin.password === password) {
+                    user = admin;
+                    break;
+                }
+            }
+        }
+
+        if (user) {
+            // Store the user session in localStorage (or cookies)
+            localStorage.setItem('loggedInUser', JSON.stringify(user));
+            alert('Login successful!');
+            window.location.href = "/dashboard"; // Example redirection
+        } else {
+            alert('Invalid username or password!');
+        }
+    } catch (error) {
+        console.error(error);
+        alert('There was an error during login.');
     }
 }
 
@@ -116,7 +136,7 @@ async function login() {
 function logout() {
     localStorage.removeItem('loggedInUser');
     alert('Logged out successfully!');
-    window.location.href = "/"; // Redirect to home page or login page
+    window.location.href = ""; // Redirect to home page or login page
 }
 
 // Check if a user is logged in
@@ -125,7 +145,6 @@ function checkLogin() {
     if (loggedInUser) {
         const user = JSON.parse(loggedInUser);
         console.log('Logged in as:', user.name);
-        // You can display a logged-in interface, or redirect to a different page
     } else {
         console.log('No user logged in');
     }
