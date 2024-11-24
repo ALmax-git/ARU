@@ -120,6 +120,61 @@
       "left_at": null,
       "path": "Networking",
       "level": 1
+    },
+    {
+      "name": "Abubakar Ibrahim",
+      "ARU_username": "commando",
+      "password": "password",
+      "strikes": 0,
+      "status": "active",
+      "join_at": "2024-11-24T21:08:33.077Z",
+      "left_at": null,
+      "path": "Ethical Hacking",
+      "level": 1
+    },
+    {
+      "name": "Muhammad mamman majama",
+      "ARU_username": "satoshi",
+      "password": "password",
+      "strikes": 0,
+      "status": "active",
+      "join_at": "2024-11-24T21:07:33.077Z",
+      "left_at": null,
+      "path": "Ethical Hacking",
+      "level": 1
+    },
+    {
+      "name": "Idris Muhammed Abdullahi",
+      "ARU_username": "paladin",
+      "password": "password",
+      "strikes": 0,
+      "status": "active",
+      "join_at": "2024-11-24T21:07:33.077Z",
+      "left_at": null,
+      "path": "Ethical Hacking",
+      "level": 1
+    },
+    {
+      "name": "Modu Dahiru Abba",
+      "ARU_username": "wizard",
+      "password": "password",
+      "strikes": 0,
+      "status": "active",
+      "join_at": "2024-11-24T21:07:33.077Z",
+      "left_at": null,
+      "path": "Ethical Hacking",
+      "level": 1
+    },
+    {
+      "name": "Salisu Ali",
+      "ARU_username": "victor",
+      "password": "password",
+      "strikes": 0,
+      "status": "active",
+      "join_at": "2024-11-24T21:07:33.077Z",
+      "left_at": null,
+      "path": "Ethical Hacking",
+      "level": 1
     }
   ],
 
