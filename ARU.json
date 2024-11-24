@@ -1,25 +1,58 @@
 {
   "participants": [
     {
-      "name": "Rahama Mustapha",
-      "ARU_username": "rahama",
+      "name": "Abdullahi Muhammad sheriff ",
+      "ARU_username": "ghost",
       "password": "password",
       "strikes": 0,
       "status": "active",
       "join_at": "2024-11-24T17:49:43.964Z",
       "left_at": null,
-      "path": "hacking",
+      "path": "Web Development",
       "level": 1
     },
     {
-      "name": "Rahama Mustapha",
-      "ARU_username": "rahama",
+      "name": "Mahammad Amer Dan Anty ",
+      "ARU_username": "phoenix",
       "password": "password",
       "strikes": 0,
       "status": "active",
       "join_at": "2024-11-24T17:49:49.142Z",
       "left_at": null,
-      "path": "hacking",
+      "path": "Web Development",
+      "level": 1
+    },
+    {
+      "name": "Adam Jubril",
+      "ARU_username": "delta",
+      "password": "password",
+      "strikes": 0,
+      "status": "active",
+      "join_at": "2024-11-24T17:49:49.142Z",
+      "left_at": null,
+      "path": "Web Development",
+      "level": 1
+    },
+    {
+      "name": "Umar Abba Abdulqadir ",
+      "ARU_username": "delta",
+      "password": "password",
+      "strikes": 0,
+      "status": "active",
+      "join_at": "2024-11-24T17:49:49.142Z",
+      "left_at": null,
+      "path": "Ethical Hacking",
+      "level": 1
+    },
+    {
+      "name": "Aliyu Alhaji Mustapha",
+      "ARU_username": "trinity",
+      "password": "password",
+      "strikes": 0,
+      "status": "active",
+      "join_at": "2024-11-24T17:49:49.142Z",
+      "left_at": null,
+      "path": "Web Development",
       "level": 1
     }
   ],
