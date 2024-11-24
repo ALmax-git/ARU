@@ -33,40 +33,26 @@ function decodeEmojiToText(emojiString) {
 }
 
 function write(value){
-   return encodeTextToEmoji(btoa(value))
+   return value;
 }
 function read(value){
-   return atob(decodeEmojiToText(value))
+   return value;
 }
 
-
-// Example Usage
-let originalText = "Hello ARU";
-
+// Testing encoding and decoding with examples
+let originalText = "abcde";
 console.log("Original Text:", originalText);
-
-// Encoding the text to emojis
 let encodedEmojis = write(originalText);
 console.log("Encoded Emojis:", encodedEmojis);
-
-// Decoding the emojis back to text
 let decodedText = read(encodedEmojis);
 console.log("Decoded Text:", decodedText);
 
-///////////////////////////////////////////////////
-///////////////////////////////////////////////////
-///////////////////////////////////////////////////
-///////////////////////////////////////////////////
-
-
-
-
-///////////////////////////////////////////////////
-///////////////////////////////////////////////////
-///////////////////////////////////////////////////
-
-
-
+originalText = "hello";
+console.log("Original Text:", originalText);
+encodedEmojis = write(originalText);
+console.log("Encoded Emojis:", encodedEmojis);
+decodedText = read(encodedEmojis);
+console.log("Decoded Text:", decodedText);
 
 // Function to load ARU.json using fetch()
 async function getARUData() {
@@ -83,10 +69,6 @@ async function getARUData() {
         return null;
     }
 }
-
-
-
-
 
 // Function to check if the username and password match any user
 async function login() {
@@ -218,26 +200,51 @@ async function fetchParticipants() {
 }
 
 // Render Table
+// function renderTable(participants) {
+//   const tableBody = document.getElementById('participantTableBody');
+//   tableBody.innerHTML = ''; // Clear table body
+//
+//   participants.forEach((participant, index) => {
+//     const row = `
+//       <tr>
+//         <td>${index + 1}</td>
+//         <td>${read(participant.name)}</td>
+//         <td>${read(participant.ARU_username)}</td>
+//         <td>${read(participant.status)}</td>
+//         <td>${read(participant.strikes)}</td>
+//         <td>${read(participant.path)}</td>
+//         <td>${read(participant.level)}</td>
+//         <td>${read(participant.join_at)}</td>
+//         <td>${read(participant.left_at || 'N/A')}</td>
+//       </tr>
+//     `;
+//     tableBody.innerHTML += row;
+//   });
+// }
+// Render Table
+// Render Table
 function renderTable(participants) {
   const tableBody = document.getElementById('participantTableBody');
-  tableBody.innerHTML = ''; // Clear table body
+  let rows = ''; // Accumulate table rows in this string
 
   participants.forEach((participant, index) => {
     const row = `
       <tr>
         <td>${index + 1}</td>
-        <td>${read(participant.name)}</td>
-        <td>${read(participant.ARU_username)}</td>
-        <td>${read(participant.status)}</td>
-        <td>${read(participant.strikes)}</td>
-        <td>${read(participant.path)}</td>
-        <td>${read(participant.level})</td>
-        <td>${read(participant.join_at)}</td>
-        <td>${read(participant.left_at || 'N/A')}</td>
+        <td>${read(participant.name)}</td> <!-- Decoding name -->
+        <td>${read(participant.ARU_username)}</td> <!-- Decoding ARU_username -->
+        <td>${read(participant.status)}</td> <!-- Decoding status -->
+        <td>${read(participant.strikes)}</td> <!-- Decoding strikes -->
+        <td>${read(participant.path)}</td> <!-- Decoding path -->
+        <td>${read(participant.level)}</td> <!-- Decoding level -->
+        <td>${read(participant.join_at)}</td> <!-- Decoding join_at -->
+        <td>${read(participant.left_at || 'N/A')}</td> <!-- Decoding left_at -->
       </tr>
     `;
-    tableBody.innerHTML += row;
+    rows += row; // Add each row to the rows string
   });
+
+  tableBody.innerHTML = rows; // Update the table body once
 }
 
 // Search and Filter Functionality
