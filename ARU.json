@@ -34,7 +34,18 @@
       "level": 1
     },
     {
-      "name": "Umar Abba Abdulqadir ",
+      "name": "Aliyu Alhaji Mustapha",
+      "ARU_username": "trinity",
+      "password": "password",
+      "strikes": 0,
+      "status": "active",
+      "join_at": "2024-11-24T17:49:49.142Z",
+      "left_at": null,
+      "path": "Web Development",
+      "level": 1
+    },
+    {
+      "name": "Umar Abba Abdulqadir",
       "ARU_username": "delta",
       "password": "password",
       "strikes": 0,
@@ -45,14 +56,14 @@
       "level": 1
     },
     {
-      "name": "Aliyu Alhaji Mustapha",
-      "ARU_username": "trinity",
+      "name": "Ibrahim Umar",
+      "ARU_username": "shadowhunter",
       "password": "password",
       "strikes": 0,
       "status": "active",
       "join_at": "2024-11-24T17:49:49.142Z",
       "left_at": null,
-      "path": "Web Development",
+      "path": "Ethical Hacking",
       "level": 1
     }
   ],
