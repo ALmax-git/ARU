@@ -186,6 +186,17 @@
       "left_at": null,
       "path": "Ethical Hacking",
       "level": 1
+    },
+    {
+      "name": "Ubaidullah Muhammad Ahmad",
+      "ARU_username": "warlock",
+      "password": "password",
+      "strikes": 0,
+      "status": "active",
+      "join_at": "2024-11-24T21:07:33.077Z",
+      "left_at": null,
+      "path": "Web Development",
+      "level": 1
     }
   ],
 
