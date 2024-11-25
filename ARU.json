@@ -46,7 +46,7 @@
     },
     {
       "name": "Umar Abba Abdulqadir",
-      "ARU_username": "delta",
+      "ARU_username": "sniper",
       "password": "password",
       "strikes": 0,
       "status": "active",
@@ -214,6 +214,11 @@
     },
     {
       "name": "Graphic Design",
+      "participants_count": 15,
+      "facilitator": "Another Facilitator"
+    },
+    {
+      "name": "Ethical Hacking",
       "participants_count": 15,
       "facilitator": "Another Facilitator"
     }
